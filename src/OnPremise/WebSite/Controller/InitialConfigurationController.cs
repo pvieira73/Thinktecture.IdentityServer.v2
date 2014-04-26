@@ -11,12 +11,14 @@ using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Principal;
 using System.Web.Mvc;
+using System.Web.SessionState;
 using Thinktecture.IdentityModel;
 using Thinktecture.IdentityServer.Repositories;
 using Thinktecture.IdentityServer.Web.ViewModels;
 
 namespace Thinktecture.IdentityServer.Web.Controllers
 {
+    [SessionState(SessionStateBehavior.Disabled)]
     public class InitialConfigurationController : Controller
     {
         [Import]

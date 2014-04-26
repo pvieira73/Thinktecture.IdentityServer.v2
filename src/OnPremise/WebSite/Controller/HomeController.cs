@@ -7,11 +7,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Web.Mvc;
+using System.Web.SessionState;
 using System.Web.WebPages;
 using Thinktecture.IdentityServer.Repositories;
 
 namespace Thinktecture.IdentityServer.Web.Controllers
 {
+    [SessionState(SessionStateBehavior.Disabled)]
     public class HomeController : Controller
     {
         [Import]

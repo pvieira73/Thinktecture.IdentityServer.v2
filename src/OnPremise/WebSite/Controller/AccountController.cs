@@ -7,6 +7,7 @@ using System.IdentityModel.Tokens;
 using System.Security.Cryptography.X509Certificates;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.SessionState;
 using System.Web.UI;
 using Thinktecture.IdentityServer.Protocols;
 using Thinktecture.IdentityServer.Repositories;
@@ -14,6 +15,7 @@ using Thinktecture.IdentityServer.Web.ViewModels;
 
 namespace Thinktecture.IdentityServer.Web.Controllers
 {
+    [SessionState(SessionStateBehavior.Disabled)]
     public class AccountController : AccountControllerBase
     {
         public AccountController() : base()
