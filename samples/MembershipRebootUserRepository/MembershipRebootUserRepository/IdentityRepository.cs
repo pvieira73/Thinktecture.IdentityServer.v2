@@ -1,8 +1,6 @@
 ﻿using BrockAllen.MembershipReboot;
-using BrockAllen.MembershipReboot.Ef;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
@@ -18,11 +16,6 @@ namespace MembershipRebootUserRepository
         IClientCertificatesRepository,
         IClaimsRepository
     {
-        static IdentityRepository()
-        {
-            Database.SetInitializer<DefaultMembershipRebootDatabase>(new MigrateDatabaseToLatestVersion<DefaultMembershipRebootDatabase, BrockAllen.MembershipReboot.Ef.Migrations.Configuration>());
-        }
-
         UserAccountService userSvc;
         GroupService groupSvc;
         IUserAccountQuery userQuery;
@@ -32,7 +25,6 @@ namespace MembershipRebootUserRepository
         {
             var settings = SecuritySettings.FromConfiguration();
             settings.RequireAccountVerification = false;
-            settings.PasswordHashingIterationCount = 50000;
             var config = new MembershipRebootConfiguration(settings);
             var uarepo = new BrockAllen.MembershipReboot.Ef.DefaultUserAccountRepository();
             this.userSvc = new UserAccountService(config, uarepo);
@@ -126,20 +118,18 @@ namespace MembershipRebootUserRepository
 
         public IEnumerable<string> GetUsers(int start, int count, out int totalCount)
         {
-            // convert from pages to rows
-            if (start < 0) start = 0;
+            if (start < 1) start = 0;
             if (count < 0) count = 10;
-            var skip = start * count;
-            return userQuery.Query(userSvc.Configuration.DefaultTenant, null, skip, count, out totalCount).Select(x => x.Username);
+            start = (start - 1) * count;
+            return userQuery.Query(userSvc.Configuration.DefaultTenant, null, start, count, out totalCount).Select(x => x.Username);
         }
 
         public IEnumerable<string> GetUsers(string filter, int start, int count, out int totalCount)
         {
-            // convert from pages to rows
-            if (start < 0) start = 0;
+            if (start < 1) start = 1;
             if (count < 0) count = 10;
-            var skip = start * count;
-            return userQuery.Query(userSvc.Configuration.DefaultTenant, filter, skip, count, out totalCount).Select(x => x.Username);
+            start = (start - 1) * count;
+            return userQuery.Query(userSvc.Configuration.DefaultTenant, filter, start, count, out totalCount).Select(x => x.Username);
         }
 
         public void SetPassword(string userName, string password)
