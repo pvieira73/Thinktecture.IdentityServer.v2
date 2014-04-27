@@ -694,14 +694,8 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Resources\SignInModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SignInModel.resx</DependentUpon>
-    </Compile>
     <Compile Include="Utility\HtmlHelpers.cs" />
     <Compile Include="ViewModels\InitialConfigurationModel.cs" />
-    <Compile Include="ViewModels\SignInModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\dummy.txt" />
@@ -1009,13 +1003,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\AccountController.fr.resx">
       <DependentUpon>AccountController.resx</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\SignInModel.fr.resx">
-      <DependentUpon>SignInModel.resx</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\SignInModel.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>SignInModel.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Areas\Admin\Content\Admin.less" />
     <EmbeddedResource Include="App_LocalResources\Account\SignIn.cshtml.fr.resx">

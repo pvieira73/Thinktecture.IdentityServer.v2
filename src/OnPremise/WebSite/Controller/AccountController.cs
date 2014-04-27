@@ -11,6 +11,7 @@ using System.Web.SessionState;
 using System.Web.UI;
 using Thinktecture.IdentityServer.Protocols;
 using Thinktecture.IdentityServer.Repositories;
+using Thinktecture.IdentityServer.ViewModels;
 using Thinktecture.IdentityServer.Web.ViewModels;
 
 namespace Thinktecture.IdentityServer.Web.Controllers
