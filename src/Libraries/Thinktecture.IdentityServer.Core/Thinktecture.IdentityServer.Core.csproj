@@ -246,6 +246,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RelyingParty.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\ViewModels\SignInModel.Designer.cs">
+      <DependentUpon>SignInModel.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Resources\TokenService\RepositoryX509SecurityTokenHandler.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -274,6 +279,7 @@
     <Compile Include="TokenService\X509CertificateSessionSecurityTokenHandler.cs" />
     <Compile Include="Tracing\Tracing.cs" />
     <Compile Include="AbsoluteUriAttribute.cs" />
+    <Compile Include="ViewModels\SignInModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -421,6 +427,13 @@
     <EmbeddedResource Include="Resources\Models\RelyingParty.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>RelyingParty.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ViewModels\SignInModel.fr.resx">
+      <DependentUpon>SignInModel.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ViewModels\SignInModel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SignInModel.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\TokenService\RepositoryX509SecurityTokenHandler.fr.resx">
       <DependentUpon>RepositoryX509SecurityTokenHandler.resx</DependentUpon>
